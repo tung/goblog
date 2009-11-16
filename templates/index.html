@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Go Blog</title>
+</head>
+
+<header>
+    <hgroup>
+        <h1><a href="/blog">Go Blog</a></h1>
+        <h2>A simple in-memory non-persistent blog in <a href="http://golang.org/">Go</a></h2>
+    </hgroup>
+</header>
+
+<section id="new_entry">
+    <h1>New Entry</h1>
+    <form action="/blog/entry/add" method="POST">
+        <label for="heading">Heading</label>
+        <input id="heading" name="heading" type="text">
+        <br>
+        <textarea id="body" name="body" rows="10" cols="60"></textarea>
+        <br>
+        <input type="submit" value="Post new entry">
+    </form>
+</section>
+
+<section id="past_entries">
+    <h1>Past Entries</h1>
+    {.repeated section @}
+        <section class="entry">
+            <h1><a href="/blog/entry/{ID}">{Heading|html}</a></h1>
+            {Body|html}
+            <p>{CommentCount} comments.</p>
+        </section>
+    {.alternates with}
+        <hr>
+    {.or}
+        <p>No entries yet.</p>
+    {.end}
+</section>
+
+<footer>
+    <p><a href="http://github.com/tung/goblog">Source at github</a></p>
+</footer>
+
+</html>
