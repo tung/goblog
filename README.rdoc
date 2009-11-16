@@ -1,0 +1,20 @@
+= Go Blog
+
+A proof-of-concept blog written in Go, that new language out of Google.  It has no backing store, so if you kill the server, your entries and comments are gone forever.
+
+== Compiling
+
+Presuming you're using the i386 architecture
+
+  $ 8g      models.go
+  $ 8g -I . views.go
+  $ 8g -I . goblog.go
+  $ 8l -o goblog *.8
+
+== Running
+
+  $ ./goblog
+
+This runs the blog on <http://localhost:12345/blog>.  Just Ctrl-C if you want to stop it.
+
+-- Tung Nguyen
